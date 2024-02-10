@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neodimio</title>
+  <meta name="description" content="A financial technology company">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Neodimio">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background-color: #f6f7f9; /* Blanco metalizado */
+      color: #24292e; /* Texto negro */
+      overflow-x: hidden;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .content {
+      text-align: center;
+      margin-top: auto; /* Centra la animación verticalmente */
+      margin-bottom: auto; /* Centra la animación verticalmente */
+    }
+    .typing-animation {
+      font-size: 3vw; /* Tamaño de fuente relativo */
+      color: #4CAF50; /* Color verde metálico */
+      font-weight: bold;
+      margin-bottom: 3vh; /* Espacio adicional hacia abajo */
+    }
+    .copyright-info {
+      font-size: 1vw; /* Tamaño de fuente relativo */
+      position: fixed;
+      bottom: 10px;
+    }
+    @media screen and (max-width: 600px) {
+      .typing-animation {
+        font-size: 8vw; /* Tamaño de fuente relativo para dispositivos móviles */
+      }
+      .copyright-info {
+        font-size: 2.5vw; /* Tamaño de fuente relativo */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content">
+    <h2 class="typing-animation" id="typing-text"></h2>
+  </div>
+
+  <div class="copyright-info">
+    <p>2024 &copy; Neodimio. All rights reserved</p>
+  </div>
+
+  <script>
+    const typingText = document.getElementById('typing-text');
+    const text = "Let's build the future of banking together";
+    typingText.innerText = '';
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        typingText.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, Math.random() * 200 + 50);
+      } else {
+        i = 0;
+        typingText.innerText = '';
+        setTimeout(typeWriter, Math.random() * 2000 + 500); // Espera antes de reiniciar la animación
+      }
+    }
+    typeWriter();
+  </script>
+
+</body>
+</html>
+
+
+
